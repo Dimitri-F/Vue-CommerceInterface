@@ -21,7 +21,16 @@ const Home = {
     name:'Home',
     data() {
         return {
-            products: products
+            products: products,
+            searchKey: '',
+            liked: []
+        }
+    },
+    computed: {
+        filteredList(){
+            return this.products.filter((product) =>{
+                return product.description.toLowerCase().includes(this.searchKey.toLowerCase());
+            })
         }
     },
  

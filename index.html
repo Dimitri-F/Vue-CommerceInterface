@@ -54,11 +54,16 @@
         <h1>Articles</h1>
 
         <!-- search diplay -->
+        <input v-model="searchKey" type="search" name="" id="search" placeholder="Search for..." autocomplete="off">
+
+        <span v-if="searchKey && filteredList.length >= 1">
+          {{ filteredList.length }} résultat{{ filteredList.length >= 2 ? "s" : ""}}
+        </span>
 
         <!-- cards display -->
         <div class="card-cart-container">
           <div class="card-container">
-            <div v-for="product in products" class="card">
+            <div v-for="product in filteredList" class="card">
               <div class="img-container">
                 <img v-bind:src="product.img" alt="">
               </div>
@@ -72,7 +77,9 @@
                   <input
                    type="checkbox" 
                    name="checkbox"
-                   v-bind:id="product.id">
+                   v-bind:id="product.id"
+                   :value=product.id
+                   v-model="liked">
 
                    <label v-bind:for="product.id">
                     <i class="fas fa-heart"></i>
@@ -88,6 +95,11 @@
               <!--  fin card icons  -->
               </div>
 
+            </div>
+            <!-- no result message -->
+            <div v-if="filteredList.length == []" class="no-result">
+              <h3>Sorry</h3>
+              <p>No match found</p>
             </div>
           </div>
         </div>

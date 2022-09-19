@@ -9,32 +9,96 @@
 
     <link rel="icon" href="./assets/img/vueLogo.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"/>
-    <link href="./assets/style/style.css" rel="stylesheet" />
+    <link href="./assets/style/main.css" rel="stylesheet" />
   </head>
 
   <body>
 
-    <nav>
-      <div class="nav-container">
-        <div id="logo">
-          <img src="./assets/img/wish-logo-800.png" alt="logo" />
+    <div id="app">
+        
+      <nav>
+        <div class="nav-container">
+          <div id="logo">
+            <router-link to="/">
+              <img src="./assets/img/wish-logo-800.png" alt="logo" />
+            </router-link>
+          </div>
+
+          <ul id="icons">
+            <li>
+              <router-link to="/user-settings">
+                <i class="fas fa-user"></i>
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/wish-list">
+                <i class="fas fa-heart"></i>
+                <span id="nav-notif"></span>
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/shopping-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+        
+      <router-view></router-view>
+
+    </div>
+
+    <script type="text/x-template" id="home">
+      <div class="home-container">
+        <h1>Articles</h1>
+
+        <!-- search diplay -->
+
+        <!-- cards display -->
+        <div class="card-cart-container">
+          <div class="card-container">
+            <div v-for="product in products" class="card">
+              <div class="img-container">
+                <img v-bind:src="product.img" alt="">
+              </div>
+              <div class="card-text">
+                <h3>{{ product.description }}</h3>
+                <span>{{ product.price }}€</span>
+              </div>
+
+              <div class="card-icons">
+                <div class="like-container">
+                  <input
+                   type="checkbox" 
+                   name="checkbox"
+                   v-bind:id="product.id">
+
+                   <label v-bind:for="product.id">
+                    <i class="fas fa-heart"></i>
+                  </label>
+                </div>
+
+                <div class="add-to-cart">
+                  <button>
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </div>
+
+              <!--  fin card icons  -->
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        <ul id="icons">
-          <li>
-            <i class="fas fa-user"></i>
-          </li>
-          <li>
-            <i class="fas fa-heart"></i>
-            <span id="nav-notif"></span>
-          </li>
-          <li>
-            <i class="fas fa-shopping-cart"></i>
-          </li>
-        </ul>
       </div>
-    </nav>
-
+      
+    </script>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
+    <script src="./assets/js/vue.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

@@ -69,7 +69,7 @@ nav .nav-container #icons #nav-not {
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  background: #ff2929;
+  background: rgb(255, 41, 41);
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -107,7 +107,7 @@ nav .nav-container #icons i:hover {
 }
 .home-container #search:focus {
   outline: none;
-  border: 2px solid #2eb7eb;
+  border: 2px solid rgb(46, 183, 235);
 }
 .home-container .card-cart-container {
   display: flex;
@@ -118,7 +118,7 @@ nav .nav-container #icons i:hover {
 }
 .home-container .card-cart-container .card-container .card {
   margin: 0.4rem 1rem 0.4rem 0;
-  background: white;
+  background: rgb(255, 255, 255);
   border-radius: 4px;
   overflow: hidden;
   position: relative;
@@ -184,7 +184,8 @@ nav .nav-container #icons i:hover {
   cursor: pointer;
 }
 .home-container .card-cart-container .card-container .card .card-icons i:hover {
-  animation: scaler 0.8s infinite linear;
+  -webkit-animation: scaler 0.8s infinite linear;
+          animation: scaler 0.8s infinite linear;
 }
 .home-container .card-cart-container .card-container .card .card-icons .fa-heart:hover {
   color: rgba(251, 38, 38, 0.5);
@@ -200,8 +201,23 @@ nav .nav-container #icons i:hover {
   display: none;
 }
 .home-container .card-cart-container .card-container .card .card-icons .like-container input:checked + label i {
-  color: #fb2626;
-  animation: heart 1.3s forwards ease;
+  color: rgb(251, 38, 38);
+  -webkit-animation: heart 1.3s forwards ease;
+          animation: heart 1.3s forwards ease;
+}
+@-webkit-keyframes heart {
+  0% {
+    filter: hue-rotate(0deg);
+    transform: scale(1);
+  }
+  50% {
+    filter: hue-rotate(-270deg);
+    transform: scale(1.3);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+    transform: scale(1);
+  }
 }
 @keyframes heart {
   0% {
@@ -273,7 +289,13 @@ nav .nav-container #icons i:hover {
   width: 50px;
   border-radius: 50%;
   transform: scale(0);
-  animation: img-scale 1s forwards;
+  -webkit-animation: img-scale 1s forwards;
+          animation: img-scale 1s forwards;
+}
+@-webkit-keyframes img-scale {
+  to {
+    transform: scale(1);
+  }
 }
 @keyframes img-scale {
   to {
@@ -295,7 +317,8 @@ nav .nav-container #icons i:hover {
   box-shadow: 0 1px 1px rgba(51, 51, 51, 0.15);
   transform: scaleX(0);
   transform-origin: left;
-  animation: img-scale 1s forwards;
+  -webkit-animation: img-scale 1s forwards;
+          animation: img-scale 1s forwards;
 }
 @keyframes img-scale {
   to {
@@ -325,8 +348,15 @@ nav .nav-container #icons i:hover {
   transform: scaleY(0);
 }
 .home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(1) {
-  animation: icon 0.5s ease forwards;
-  animation-delay: 0.2s;
+  -webkit-animation: icon 0.5s ease forwards;
+          animation: icon 0.5s ease forwards;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+@-webkit-keyframes icon {
+  to {
+    transform: scaleY(1);
+  }
 }
 @keyframes icon {
   to {
@@ -334,8 +364,10 @@ nav .nav-container #icons i:hover {
   }
 }
 .home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(2) {
-  animation: icon 0.5s ease forwards;
-  animation-delay: 0.4s;
+  -webkit-animation: icon 0.5s ease forwards;
+          animation: icon 0.5s ease forwards;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 }
 @keyframes icon {
   to {
@@ -343,8 +375,10 @@ nav .nav-container #icons i:hover {
   }
 }
 .home-container .shopping-cart .item-group .item .item-quantity .cart-icons button:nth-child(3) {
-  animation: icon 0.5s ease forwards;
-  animation-delay: 0.6s;
+  -webkit-animation: icon 0.5s ease forwards;
+          animation: icon 0.5s ease forwards;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
 }
 @keyframes icon {
   to {
@@ -394,7 +428,8 @@ nav .nav-container #icons i:hover {
   color: #2eb7eb;
   font-weight: bold;
   letter-spacing: 6px;
-  animation: scaler 1.5s infinite linear;
+  -webkit-animation: scaler 1.5s infinite linear;
+          animation: scaler 1.5s infinite linear;
 }
 .home-container .shopping-cart .order-button button:active {
   transform: scale(0.92);
@@ -417,7 +452,7 @@ nav .nav-container #icons i:hover {
   transition: 0.7s;
 }
 
-@keyframes scaler {
+@-webkit-keyframes scaler {
   50% {
     transform: scale(1.1);
   }
@@ -426,4 +461,11 @@ nav .nav-container #icons i:hover {
   }
 }
 
-/*# sourceMappingURL=style.css.map */
+@keyframes scaler {
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}/*# sourceMappingURL=main.css.map */

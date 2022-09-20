@@ -79,7 +79,8 @@
                    name="checkbox"
                    v-bind:id="product.id"
                    :value=product.id
-                   v-model="liked">
+                   v-model="liked"
+                   @click="setLikeCookie()">
 
                    <label v-bind:for="product.id">
                     <i class="fas fa-heart"></i>
@@ -110,6 +111,7 @@
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
+    <script src="https://unpkg.com/vue-cookies@1.8.1/vue-cookies.js"></script>
     <script src="./assets/js/vue.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>

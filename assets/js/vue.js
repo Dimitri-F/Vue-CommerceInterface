@@ -24,7 +24,8 @@ const Home = {
         return {
             products,
             searchKey: '',
-            liked: []
+            liked: [],
+            cart: []
         }
     },
     computed: {
@@ -45,6 +46,33 @@ const Home = {
                     $cookies.set('like', JSON.stringify(this.liked))
                 }, 300);
             })
+        },
+        addToCart(product) {
+            for (let i = 0; i < this.cart.length; i++) {
+                if(this.cart[i].id === product.id) {
+                    return this.cart[i].quantity++
+                }  
+            }
+            this.cart.push({
+                id: product.id,
+                img: product.img,
+                description: product.description,
+                price: product.price,
+                quantity: 1
+            })
+        },
+        cartPlusOne(product) {
+            product.quantity = product.quantity + 1
+        },
+        cartMinusOne(product, id){
+            if (product.quantity == 1) {
+                this.cartRemoveItem(id)
+            }else{
+                product.quantity = product.quantity - 1
+            }
+        },
+        cartRemoveItem(id) {
+            this.cart.splice(id, 1)
         }
     },
     mounted: () => {
@@ -76,10 +104,8 @@ const routes = [
 
 const router = VueRouter.createRouter({
     history: VueRouter.createWebHashHistory(),
-    routes, // short for `routes: routes`
+    routes, 
 })
-
-
 
 app.use(router)
 

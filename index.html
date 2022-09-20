@@ -105,10 +105,12 @@
           </div>
 
           <!-- cart display -->
+          <transition name="cart-anim">
+        
           <div v-if="cart.length > 0" class="shopping-cart" id="shopping-cart">
             <h2>Cart</h2>
 
-            <div class="item-group">
+            <transition-group name="item-anim" tag="div" class="item-group">
               <div v-for="product, id in cart" v-bind:key="product.id" class="item">
                 <div class="img-container">
                   <img v-bind:src="product.img" alt="">
@@ -134,7 +136,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </transition-group>
 
             <div class="grand-total">
               <div class="total">
@@ -144,6 +146,8 @@
               <h6>Items Amount: {{ itemTotalAmount }}</h6>
             </div>
           </div>
+
+        </transition>
         </div>
 
       </div>

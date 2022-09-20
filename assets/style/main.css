@@ -443,13 +443,16 @@ nav .nav-container #icons i:hover {
   transform: translateX(400px);
 }
 .home-container .item-anim-enter-active, .home-container .item-anim-leave-active {
-  opacity: 1;
+  transform: scale(1);
   transition: 0.8s;
 }
-.home-container .item-anim-enter, .home-container .item-anim-leave-to {
-  opacity: 0;
-  transform: translateY(100px);
-  transition: 0.7s;
+.home-container .item-anim-enter {
+  transition: 0.8s;
+}
+.home-container .item-anim-leave-to {
+  transform: scale(0);
+  /* transform: translateY(100px); */
+  transition: 0.4s;
 }
 
 @-webkit-keyframes scaler {

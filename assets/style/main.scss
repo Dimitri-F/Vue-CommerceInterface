@@ -448,14 +448,16 @@ nav {
   .item-anim {
     &-enter-active, 
     &-leave-active {
-      opacity: 1;
+      transform: scale(1);
       transition: .8s;
     }
-    &-enter,
+    &-enter{
+      transition: .8s;
+    }
     &-leave-to {
-      opacity: 0;
-      transform: translateY(100px);
-      transition: .7s;
+      transform: scale(0);
+      /* transform: translateY(100px); */
+      transition: .4s;
     }
   }
 }
